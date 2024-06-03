@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Orders List</title>
+</head>
+<body>
+    <h1>Orders List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>User</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            {% if order.user == request.user %}
+                <tr>
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.user.username }}</td>
+                    <td>{{ order.product.name }}</td>
+                    <td>{{ order.quantity }}</td>
+                    <td>{{ order.status }}</td>
+                </tr>
+            {% else %}
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>{{ order.user.username }}</td>
+                <td>{{ order.product.name }}</td>
+                <td>{{ order.quantity }}</td>
+                <td>{{ order.status }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="col-md-12 p-5">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form }}
+                <button class="btn btn-primary mt-3" type="submit">Sign Up</button>
+                <a href="{% url 'users:login' %}" class="btn btn-warning ms-3 mt-3">Login</a>
+            </form>
+        </div>
+    </div>
+
+
+{% endblock %}
